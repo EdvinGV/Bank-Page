@@ -57,13 +57,28 @@ return (<>
     <td>Mariukas</td>
       <td>Bedarbiukas</td>
       <td>0 Eu</td>
-      <td></td>
+      <td>
+
+      <div className="form-check form-switch">
+  <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
+  <label className="form-check-label" htmlFor="flexSwitchCheckDefault"></label>
+</div>
+        
+      </td>
     </tr>
+  
     <tr className='rightrow'>
     <td>Mariukas</td>
       <td>Bedarbiukas</td>
       <td>0 Eu</td>
-      <td></td>
+      <td>
+
+      <div className="form-check form-switch">
+  <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
+  <label className="form-check-label" htmlFor="flexSwitchCheckDefault"></label>
+</div>
+        
+      </td>
     </tr>
    
   </tbody>
