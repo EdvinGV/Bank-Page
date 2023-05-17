@@ -1,4 +1,4 @@
 # Banko Puslapio Projektas
 
-Created by [Edvin Gvozdovic](https://https://github.com/EdvinGV).
+Created by [Edvin Gvozdovic](https://github.com/EdvinGV).
 
