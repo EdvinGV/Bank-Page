@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 
-function AccOptions({ deleteModalData, setDeleteModalData, setDeleteData, account }) {
+function AccOptions({ deleteModalData, setDeleteModalData, setDeleteData, account, msg }) {
 
     
 const istrinti = () => {
-setDeleteData(account );
+   if (account.Balansas>0){msg ('Sąskaitoje yra lėšų. Ištrinti negalima.' )}else{  
+setDeleteData(account )};
 };
 
 return (

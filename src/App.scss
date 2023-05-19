@@ -162,6 +162,7 @@ color: white;
   }
   #asmuo{
     width: 10%;
+    
   }
   .participants{
     line-height: 2em;
@@ -177,24 +178,51 @@ color: white;
   
   
   }
-
+  .filtras{
+   
+    margin: 0;
+    padding: 0;
+   padding-right: 100px;
+  }
 }
 
 
 
 .messages {
   position: fixed;
-  top: 40px;
+  bottom: 40px;
   right: 50px;
   display: flex;
   flex-direction: column;
+  max-width: 600px;
   gap: 5px;
+  flex-wrap: wrap;
+  
   .message {
+    
       padding: 15px 30px;
       border: 1px solid $gray;
-      background-color: lighten($gray, 10%);
+      
       border-radius: 3px;
       font-size: 20px;
+      font-weight: 500;
+      color: white;
+      letter-spacing: 1px;
+     
+      }
+      .message{ 
+        background-color: rgba(128, 128, 128, 0.588);
+        animation: fadeIn 5s;
+        animation-iteration-count: infinite;
+        @keyframes fadeIn {
+          0% { opacity: 0; }
+          20% { opacity: 1; }
+          30% { opacity: 1; }
+          40% { opacity: 0.5; }
+          50% { opacity: 1; }
+          60% { opacity: 0.5; }
+          70% { opacity: 1; }
+          100% { opacity: 0; }}
       &.ok {
           border-color: $yellow;
           background-color: lighten($yellow, 10%);

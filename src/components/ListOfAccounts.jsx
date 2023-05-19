@@ -1,15 +1,16 @@
 import { AccOptions } from "./AccountOptions";
 import { BalanceOptions } from "./BalanceOptions";
 
-function ListOfAcc({accounts, setDeleteData, setEditData, msg}){
+function ListOfAcc({accounts, setDeleteData, setEditData, msg, setSort}){
     return(<>
     <table className="table">
   <thead>
     <tr className="rightrow">
-      <th scope="col">Vardas</th>
+      <th id="asmuo" scope="col"><span className="filtras"> Filtrukas </span><br />Vardas   </th>
       <th scope="col">Pavardė</th>
       <th scope="col">Balansas</th>
-      <th id="asmuo" scope="col">Opcijos</th>
+      <th id="asmuo" scope="col"> Opcijos</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -20,7 +21,7 @@ function ListOfAcc({accounts, setDeleteData, setEditData, msg}){
         <td>{c.Balansas}<span> €</span></td>
         <td>
           <BalanceOptions account={c} setEditData={setEditData} msg={msg}  />
-          <AccOptions account={c} setDeleteData={setDeleteData} />
+          <AccOptions account={c} setDeleteData={setDeleteData} msg={msg} />
         </td>
       </tr>
     )) : null}

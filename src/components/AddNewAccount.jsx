@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 
 
-function AddNewAcc({ setCreateData }){
+function AddNewAcc({ setCreateData, msg, setAccounts }){
 
     const nameRef = useRef(null);
     const surnameRef = useRef(null);
@@ -10,13 +10,15 @@ function AddNewAcc({ setCreateData }){
 
         const vardas = nameRef.current.value;
         const pavarde = surnameRef.current.value;
-if (vardas.length && pavarde.length !==0){
+
+
+        if(vardas.length && pavarde.length !==0){
         setCreateData({
             Vardas: vardas,
             Pavarde: pavarde,
             Balansas: 0
         });
-    };
+    }else{msg ('*Trūksta duomenų registracijai.' )};
     }
 
 return(

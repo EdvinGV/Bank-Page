@@ -22,10 +22,10 @@ function App() {
   const [createData, setCreateData] = useState(null);
   const [accounts, setAccounts] = useState(null);
   const [deleteData, setDeleteData] = useState(null);
-  const [deleteModalData, setDeleteModalData] = useState(null);
   const [editData, setEditData] = useState(null);
   const [sort, setSort] = useState('default');
   const [messages, setMessages] = useState([]);
+  
   //R read
   useEffect(_ => {
     setAccounts(crudRead(KEY));
@@ -89,7 +89,7 @@ function App() {
       type,
     };
     setMessages((m) => [...m, message]);
-    setTimeout((_) => setMessages((m) => m.filter((m) => m.id !== id)), 1000);
+    setTimeout((_) => setMessages((m) => m.filter((m) => m.id !== id)), 5000);
 
   };
   return (
@@ -110,7 +110,7 @@ function App() {
 
               <h3 className='title'>Naujos Paskyros Duomenys</h3>
 
-              <AddNewAcc setCreateData={setCreateData} />
+              <AddNewAcc setCreateData={setCreateData} msg={msg} setAccounts={setAccounts} accounts={accounts}   />
 
 
 
@@ -123,7 +123,7 @@ function App() {
             <div className='right_column column'>
 
               <h3 className='participants'>Sąskaitų Sąrašas</h3>
-              <ListOfAcc accounts={accounts} setDeleteData={setDeleteData} setEditData={setEditData} 
+              <ListOfAcc accounts={accounts} setDeleteData={setDeleteData} setEditData={setEditData} setSort={setSort} 
               msg={msg}/>
 
             </div>
