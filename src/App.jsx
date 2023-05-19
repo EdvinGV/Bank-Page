@@ -9,7 +9,8 @@ import { ListOfAcc } from './components/ListOfAccounts';
 import { BalanceOptions } from './components/BalanceOptions';
 import { AccOptions } from './components/AccountOptions';
 import logo from './bank-logo.png';
-import { crudCreate,crudRead, crudDelete,crudEdit } from './functions/localStoragecrud';
+import { crudCreate, crudRead, crudDelete, crudEdit } from './functions/localStoragecrud';
+import Messages from './components/Message';
 const KEY = 'egbankas'
 
 
@@ -24,31 +25,31 @@ function App() {
   const [deleteModalData, setDeleteModalData] = useState(null);
   const [editData, setEditData] = useState(null);
   const [sort, setSort] = useState('default');
-  
-    //R read
-    useEffect(_ => {
-      setAccounts(crudRead(KEY));
-    }, [listUpdate]);
-  
-  
-    //C create
-    useEffect(_ => {
-      if (null === createData) {
-        return;
-      }
-      crudCreate(KEY, createData);
-      setListUpdate(Date.now());
-    }, [createData]);
-    
+
+  //R read
+  useEffect(_ => {
+    setAccounts(crudRead(KEY));
+  }, [listUpdate]);
+
+
+  //C create
+  useEffect(_ => {
+    if (null === createData) {
+      return;
+    }
+    crudCreate(KEY, createData);
+    setListUpdate(Date.now());
+  }, [createData]);
+
   //U update
 
   useEffect(_ => {
     if (null === editData) {
-        return;
+      return;
     }
-            crudEdit(KEY, editData, editData.id);
-            setListUpdate(Date.now());
-}, [editData]);
+    crudEdit(KEY, editData, editData.id);
+    setListUpdate(Date.now());
+  }, [editData]);
 
   //D deleate
   useEffect(_ => {
@@ -58,7 +59,7 @@ function App() {
     crudDelete(KEY, deleteData.id);
     setListUpdate(Date.now());
   }, [deleteData]);
-//Rusiavimas
+  //Rusiavimas
   useEffect(() => {
     if (sort === 'default') {
       setAccounts(c => [...c].sort((a, b) => a.row - b.row)); // rusiavimas
@@ -79,61 +80,73 @@ function App() {
       }
     });
   }
+  const msg = (text, type) => {
+    const id = uuidv4();
+    const message = {
+      id,
+      text,
+      type,
+    };
+    setMessages((m) => [...m, message]);
+    setTimeout((_) => setMessages((m) => m.filter((m) => m.id !== id)), 5000);
+
+  };
   return (
     <div >
       <header className="App-header">
 
-      <section className="bank_main">
+        <section className="bank_main">
 
-<div className="logo ">
-<img  style={{width:150, margin:20, marginLeft:0}} src={logo} alt="logo"></img>
-</div>
-
-
-<div className='main-window'>
+          <div className="logo ">
+            <img style={{ width: 150, margin: 20, marginLeft: 0 }} src={logo} alt="logo"></img>
+          </div>
 
 
-<div className='left_column column'>
-  
-  <h3 className='title'>Naujos Paskyros Duomenys</h3>
-  
-  <AddNewAcc setCreateData={setCreateData} />
+          <div className='main-window'>
 
 
+            <div className='left_column column'>
 
-</div>
+              <h3 className='title'>Naujos Paskyros Duomenys</h3>
+
+              <AddNewAcc setCreateData={setCreateData} />
 
 
 
-
-
-<div className='right_column column'>
-
-<h3 className='participants'>Sąskaitų Sąrašas</h3>
-<ListOfAcc  accounts={accounts} setDeleteData={setDeleteData} setEditData={setEditData } 
-        />
-        
-</div>
-
-</div>
-
-</section>
+            </div>
 
 
 
 
 
-        
-       
-        
-  
+            <div className='right_column column'>
+
+              <h3 className='participants'>Sąskaitų Sąrašas</h3>
+              <ListOfAcc accounts={accounts} setDeleteData={setDeleteData} setEditData={setEditData} 
+              />
+
+            </div>
+
+          </div>
+
+        </section>
 
 
 
 
 
-  
+
+
+
+
+
+
+
+
+
+
       </header>
+      <Messages messages={messages} />
     </div>
   );
 }
