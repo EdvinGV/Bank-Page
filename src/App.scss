@@ -8,11 +8,13 @@
   font-size: 15px;
   background-color: #282828;
   color: white;
+ 
 
   .bank_main{
     width: 1200px;
     margin-left: calc(50% - 600px);
-    min-height: 100vh;
+    min-height: 90vh;
+   
     
      }
    
@@ -23,6 +25,7 @@
     align-items: center;
    display: flex;
    margin: 0;
+   padding: 0;
 
   }
 
@@ -31,35 +34,49 @@
    .main-window{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     
     
    
     min-height: 100vh;
   .left_column{
-    width: 55%;
-    height: 100vh;
+    width: 34%;
     background-color: #515151;
-    min-height: 100vh;
+    min-height: 90vh;
+    position: relative;
+    
   }
 
    }
    .btn{
     background-color: #866868;
     border-radius: 0px;
-    font-size: 15px;
+    font-size: 10px;
+    font-weight: bold;
     color: white;
- height: 3rem;
+ height: 2rem;
  text-align: center;
- width: 100px;
+ 
  border: 1px solid #8a8989 ;
+}
+.sukurti{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  height: 3rem;
+  font-size: 14px;
+}
+.prideti, .atimti{
+  letter-spacing: 1px;
+  width: 90px;
 }
 .istrinti{
   height: 2rem;
-  width: 80px;
+  width: 180px;
   font-size: 10px;
   letter-spacing: 1px;
   font-weight: bold;
+  
+
 }
   .btn:hover{
     background-color: #a25151;
@@ -67,27 +84,50 @@
   }
   .title{
     background-color: #D9D9D9;
-    line-height: 2em;
+    line-height: 4rem;
     color: black;
     font-weight: bold;
     padding-left: 10px;
     margin-bottom: 60px;
-    margin-top: 20px;
+    
+  }
+  .ivestis[type=text] {
+    
+    padding-left: 10px;
+    font-size: 14px;
+   
   }
   .ivestis{
     height: 3rem;
     border: none;
     margin: 0;
-    width: 250px;
+    width: 2;
+    
     
   }
+  .money{
+    height: 2rem;
+    border: none;
+    margin: 0;
+    width: 180px
+  }
   .ivestis::placeholder{
+   
     
+    letter-spacing: 1px;
+color: white;
+  }
+ 
+  .money::placeholder{
+    
+text-align: center;
+    font-size: 12px;
     letter-spacing: 1px;
 color: white;
   }
   input{
     color: #ffffff;
+    padding: 0;
 }
   .lightgrey{
 background-color: #7A7A7A;
@@ -99,10 +139,11 @@ color: white;
   }
   .right_column{
     
-    width: 44%;
-    height: 100vh;
+    width: 65%;
+   
     background-color: #515151;
-    min-height: 100vh;
+    min-height: 90vh;
+    
   }
   .vartotojasHead{
 color: white;
@@ -110,11 +151,16 @@ color: white;
   .rightrow{
     background-color:#E7E7E7;
   }
+  #asmuo{
+    width: 10%;
+  }
   .participants{
     line-height: 2em;
     text-align: center;
   }
+  
   #flexSwitchCheckDefault{
+   
   color:white;
   background-color: #866868;
   border: none;
