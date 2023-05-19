@@ -20,7 +20,7 @@ function BalanceOptions({setEditData, account, msg}){
         setEditData({...account, Balansas: newbalanceMinus});
         addbalance.current.value = null;
       }else{
-        msg ('Ner bapkiu , Sorry')
+        msg ('Įvesta reikšmė yra netinkama arba balanse nepakanka pinigų, Sorriukas :)')
       }
       };
       

@@ -1,4 +1,4 @@
-
+import { v4 as uuidv4 } from 'uuid';
 import './App.scss';
 import { Bankas } from './Eg-Bankas';
 import './index.css';
@@ -25,7 +25,7 @@ function App() {
   const [deleteModalData, setDeleteModalData] = useState(null);
   const [editData, setEditData] = useState(null);
   const [sort, setSort] = useState('default');
-
+  const [messages, setMessages] = useState([]);
   //R read
   useEffect(_ => {
     setAccounts(crudRead(KEY));
@@ -39,6 +39,7 @@ function App() {
     }
     crudCreate(KEY, createData);
     setListUpdate(Date.now());
+   
   }, [createData]);
 
   //U update
@@ -88,7 +89,7 @@ function App() {
       type,
     };
     setMessages((m) => [...m, message]);
-    setTimeout((_) => setMessages((m) => m.filter((m) => m.id !== id)), 5000);
+    setTimeout((_) => setMessages((m) => m.filter((m) => m.id !== id)), 1000);
 
   };
   return (
@@ -123,12 +124,12 @@ function App() {
 
               <h3 className='participants'>Sąskaitų Sąrašas</h3>
               <ListOfAcc accounts={accounts} setDeleteData={setDeleteData} setEditData={setEditData} 
-              />
+              msg={msg}/>
 
             </div>
 
           </div>
-
+<Messages messages={messages}/>
         </section>
 
 
