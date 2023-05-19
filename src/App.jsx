@@ -9,7 +9,7 @@ import { ListOfAcc } from './components/ListOfAccounts';
 import { BalanceOptions } from './components/BalanceOptions';
 import { AccOptions } from './components/AccountOptions';
 import logo from './bank-logo.png';
-import { crudCreate,crudRead, crudDelete,editCrud } from './functions/localStoragecrud';
+import { crudCreate,crudRead, crudDelete,crudEdit } from './functions/localStoragecrud';
 const KEY = 'egbankas'
 
 

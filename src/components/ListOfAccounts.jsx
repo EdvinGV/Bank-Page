@@ -18,7 +18,7 @@ function ListOfAcc({accounts, setDeleteData, setEditData}){
       <tr key={c.id} className="rightrow" id="asmuo">
         <td>{c.Vardas}</td>
         <td>{c.Pavarde}</td>
-        <td>{c.Balance !== undefined ? c.Balance : 0}<span> €</span></td>
+        <td>{c.Balansas}<span> €</span></td>
         <td>
           <BalanceOptions account={c} setEditData={setEditData} />
           <AccOptions account={c} setDeleteData={setDeleteData} />
