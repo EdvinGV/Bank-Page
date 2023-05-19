@@ -1,9 +1,8 @@
 import { useRef } from "react";
 
-function BalanceOptions({setEditData, account}){
+function BalanceOptions({setEditData, account, msg}){
 
   const addbalance = useRef(0);
-  
     const plus = () => {
       const pinigelis = parseFloat(addbalance.current.value);
         const newbalancePlus = account.Balansas + pinigelis;
@@ -12,13 +11,17 @@ function BalanceOptions({setEditData, account}){
           addbalance.current.value = null;
       };
      
+
+      
       const minus = () => { 
         const pinigelis = parseFloat(addbalance.current.value);
         const newbalanceMinus = account.Balansas - pinigelis; 
-        if(newbalanceMinus>=0 ){
+        if(newbalanceMinus>=0){
         setEditData({...account, Balansas: newbalanceMinus});
         addbalance.current.value = null;
-      };
+      }else{
+        msg ('Ner bapkiu , Sorry')
+      }
       };
       
 
