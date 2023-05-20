@@ -9,6 +9,8 @@ function BalanceOptions({setEditData, account, msg}){
 if(pinigelis<=0 || isNaN(pinigelis)){
   msg ('Įvesta reikšmė yra netinkama. :)' )
   msg ('*Priimami tik teigiami skaičiai didesni už 0 .' )
+      }else if (pinigelis% pinigelis.toFixed(2) !== 0){
+        msg ('Minimalus pinigų sumos vienetas 0,01 :)' )
       }else{
         setEditData({...account, Balansas: newbalancePlus});
         addbalance.current.value = null; }
@@ -22,6 +24,8 @@ if(pinigelis<=0 || isNaN(pinigelis)){
         if (pinigelis<=0 || isNaN(pinigelis)){
           msg ('Įvesta reikšmė yra netinkama. :)' )
           msg ('*Priimami tik teigiami skaičiai didesni už 0 .' )
+        }else if (pinigelis% pinigelis.toFixed(2) !== 0){
+          msg ('Minimalus pinigų sumos vienetas 0,01 :)' )
         }else if(newbalanceMinus<0){
         msg ('Balanse nepakanka pinigų, Sorriukas :)' )
       }else if(newbalanceMinus>=0){

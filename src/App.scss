@@ -29,7 +29,6 @@ $gray: #E6E8E6;
     align-items: center;
    display: flex;
    margin: 0;
-   padding: 0;
 
   }
 
@@ -164,6 +163,10 @@ color: white;
     width: 10%;
     
   }
+  #asmuo1{
+    width: 20%;
+    
+  }
   .participants{
     line-height: 2em;
     text-align: center;
@@ -177,15 +180,46 @@ color: white;
   box-shadow: none;
   
   
-  }
+  } 
   .filtras{
-   
-    margin: 0;
-    padding: 0;
-   padding-right: 100px;
-  }
-}
 
+  
+  
+    background-color: #866868;
+    border-radius: 0px;
+    font-weight: bold;
+    color: white;
+ height: 2rem;
+ text-align: center;
+ border: 1px solid #8a8989 ;
+   font-size: 12px ;
+   letter-spacing: 2px;
+   font-weight: bold;
+   padding: 4px;
+   width: 100px;
+   text-align: center;
+cursor: pointer;
+display: inline;
+   
+   &.default:after {
+    content: ''; // default
+   }
+  &.asc::after {
+    
+    content: '\25BD'; // virsun
+  }
+
+  &::after {
+    content: '\25B3'; // apacion
+  }
+  
+
+
+}}
+.filtrlaukas{
+  word-spacing: 20px;
+  
+}
 
 
 .messages {

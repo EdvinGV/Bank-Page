@@ -28,7 +28,7 @@ function App() {
   
   //R read
   useEffect(_ => {
-    setAccounts(crudRead(KEY));
+    setAccounts(crudRead(KEY).map((c, i) => ({ ...c, row: i, show: true })));
   }, [listUpdate]);
 
 
@@ -65,9 +65,9 @@ function App() {
     if (sort === 'default') {
       setAccounts(c => [...c].sort((a, b) => a.row - b.row)); // rusiavimas
     } else if (sort === 'asc') {
-      setAccounts(c => [...c].sort((a, b) => a.Surname.localeCompare(b.Surname))); // Ascending, nuo A iki Z
+      setAccounts(c => [...c].sort((a, b) => a.Pavarde.localeCompare(b.Pavarde))); // Ascending, nuo A iki Z
     } else {
-      setAccounts(c => [...c].sort((b, a) => a.Surname.localeCompare(b.Surname))); // Descending, nuo Z iki A
+      setAccounts(c => [...c].sort((b, a) => a.Pavarde.localeCompare(b.Pavarde))); // Descending, nuo Z iki A
     }
 
   }, [sort]);
@@ -77,7 +77,7 @@ function App() {
       switch (s) {
         case 'default': return 'asc';
         case 'asc': return 'dsc';
-        default: return 'default'
+        default: return 'default';
       }
     });
   }
@@ -99,7 +99,8 @@ function App() {
         <section className="bank_main">
 
           <div className="logo ">
-            <img style={{ width: 150, margin: 20, marginLeft: 0 }} src={logo} alt="logo"></img>
+            
+            <a href="https://www.cvbankas.lt/mcdonald-s-restorano-darbuotojas-vilniuje-gedimino-pr-vilniuje/1-9527710"><img style={{ width: '300px', marginTop: 20, marginBottom: 20, cursor: 'pointer' }} src={logo} alt="logo"></img></a>
           </div>
 
 
@@ -124,7 +125,7 @@ function App() {
 
               <h3 className='participants'>Sąskaitų Sąrašas</h3>
               <ListOfAcc accounts={accounts} setDeleteData={setDeleteData} setEditData={setEditData} setSort={setSort} 
-              msg={msg}/>
+                  msg={msg} sort={sort} doSort={doSort} />
 
             </div>
 
